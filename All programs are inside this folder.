@@ -1,0 +1,239 @@
+# BASIC PROGRAMS
+
+# 1) Hello, World!
+print("Hello, World!")
+
+# 2) Integer Input
+num = int(input("Enter an integer: "))
+print("You entered:", num)
+
+# 3) Add Two Numbers
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+print("Sum:", a + b)
+
+# 4) Division and Remainder
+dividend = int(input("Enter dividend: "))
+divisor = int(input("Enter divisor: "))
+print("Quotient:", dividend // divisor)
+print("Remainder:", dividend % divisor)
+
+# 5) Size of data types
+import sys
+print("Size of int:", sys.getsizeof(0))
+print("Size of float:", sys.getsizeof(0.0))
+print("Size of char:", sys.getsizeof('a'))
+
+# 6) Swap Numbers
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+a, b = b, a
+print("After swapping: a =", a, ", b =", b)
+
+# 7) ASCII Value
+char = input("Enter a character: ")
+print("ASCII value of", char, "is", ord(char))
+
+# 8) Multiply Decimals
+a = float(input("Enter first decimal number: "))
+b = float(input("Enter second decimal number: "))
+print("Product:", a * b)
+
+
+# IF-ELSE PROGRAMS
+
+# 1) Max of Two
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+print("Maximum is:", a if a > b else b)
+
+# 2) Max of Three
+a = int(input("Enter first: "))
+b = int(input("Enter second: "))
+c = int(input("Enter third: "))
+print("Maximum is:", max(a, b, c))
+
+# 3) Even or Odd
+num = int(input("Enter number: "))
+print("Even" if num % 2 == 0 else "Odd")
+
+# 4) Leap Year
+year = int(input("Enter year: "))
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("Leap year")
+else:
+    print("Not a leap year")
+
+# 5) Vowel or Consonant
+ch = input("Enter a character: ").lower()
+print("Vowel" if ch in 'aeiou' else "Consonant")
+
+# 6) Alphabet Check
+ch = input("Enter a character: ")
+print("Alphabet" if ch.isalpha() else "Not an alphabet")
+
+# 7) Pos/Neg/Zero
+num = float(input("Enter a number: "))
+print("Positive" if num > 0 else "Negative" if num < 0 else "Zero")
+
+# 8) Upper or Lower
+ch = input("Enter a character: ")
+if ch.isupper():
+    print("Uppercase")
+elif ch.islower():
+    print("Lowercase")
+else:
+    print("Not an alphabet")
+
+
+# LOOPS PROGRAMS
+
+# 1) 1 to N
+n = int(input("Enter number: "))
+for i in range(1, n+1):
+    print(i, end=' ')
+
+# 2) N to 1
+for i in range(n, 0, -1):
+    print(i, end=' ')
+
+# 3) A to Z
+for c in range(ord('A'), ord('Z')+1):
+    print(chr(c), end=' ')
+
+# 4) Even 1 to 100
+for i in range(2, 101, 2):
+    print(i, end=' ')
+
+# 5) Odd 1 to 100
+for i in range(1, 101, 2):
+    print(i, end=' ')
+
+# 6) Multiplication Table
+num = int(input("Enter number: "))
+for i in range(1, 11):
+    print(f"{num} x {i} = {num*i}")
+
+# 7) Count Digits
+num = int(input("Enter number: "))
+count = 0
+while num:
+    num //= 10
+    count += 1
+print("Digits:", count)
+
+# 8) Sum 1 to N
+n = int(input("Enter number: "))
+print("Sum:", sum(range(1, n+1)))
+
+
+# PATTERN PROGRAMS
+
+# 1) Square
+n = int(input("Enter rows: "))
+for i in range(n):
+    print("* " * n)
+
+# 2) Triangle
+for i in range(1, n+1):
+    print("*" * i)
+
+# 3) Triangle Numbers
+for i in range(1, n+1):
+    for j in range(1, i+1):
+        print(j, end=' ')
+    print()
+
+# 4) Inverted Triangle
+for i in range(n, 0, -1):
+    print("*" * i)
+
+# 5) Pyramid
+for i in range(1, n+1):
+    print(" " * (n-i) + "* " * i)
+
+# 6) Diamond
+for i in range(1, n+1):
+    print(" " * (n-i) + "* " * i)
+for i in range(n-1, 0, -1):
+    print(" " * (n-i) + "* " * i)
+
+# 7) Floyd’s Triangle
+num = 1
+for i in range(1, n+1):
+    for j in range(i):
+        print(num, end=' ')
+        num += 1
+    print()
+
+
+# MATH PROGRAMS
+
+# Prime Check
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5)+1):
+        if num % i == 0:
+            return False
+    return True
+
+# Armstrong Check
+num = int(input("Enter number: "))
+sum = 0
+temp = num
+n = len(str(num))
+while temp:
+    sum += (temp % 10) ** n
+    temp //= 10
+print("Armstrong" if sum == num else "Not Armstrong")
+
+# Factorial
+def factorial(n):
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
+
+# Palindrome
+num = input("Enter number: ")
+print("Palindrome" if num == num[::-1] else "Not Palindrome")
+
+# GCD
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+# Perfect Number
+num = int(input("Enter number: "))
+print("Perfect" if sum(i for i in range(1, num) if num % i == 0) == num else "Not Perfect")
+
+# Fibonacci
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        print(a, end=' ')
+        a, b = b, a + b
+    print()
+
+
+# FUNCTION BASED PROGRAMS
+
+# 1) Prime Check
+number = int(input("Enter number: "))
+print("Prime" if is_prime(number) else "Not Prime")
+
+# 2) Factorial
+num = int(input("Enter number: "))
+print("Factorial:", factorial(num))
+
+# 3) GCD
+x = int(input("Enter first: "))
+y = int(input("Enter second: "))
+print("GCD:", gcd(x, y))
+
+# 4) Fibonacci
+terms = int(input("Enter terms: "))
+fibonacci(terms)
+
